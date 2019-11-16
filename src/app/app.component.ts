@@ -1,18 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-
-import { StoreService } from "./services/store.service";
+import { ClothesStore } from "../store/ClothesStore";
 
 @Component({
-  providers: [StoreService],
+  providers: [ClothesStore],
   selector: "app-root",
   styleUrls: ["./app.component.scss"],
   templateUrl: "./app.component.html"
 })
 export class AppComponent implements OnInit {
-  constructor(private storeService: StoreService) {}
+  constructor(private clothesStore: ClothesStore) {}
 
-  public ngOnInit() {
-    const service = this.storeService;
-    setTimeout(() => service.dispatch({ type: "init-state" }), 2000);
+  public ngOnInit(): void {
+    setTimeout(() => this.clothesStore.dispatch({ type: "dummy-event" }), 500);
   }
 }
