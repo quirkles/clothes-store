@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { ClothesStore } from "../store/ClothesStore";
 
 @Component({
@@ -7,10 +7,6 @@ import { ClothesStore } from "../store/ClothesStore";
   styleUrls: ["./app.component.scss"],
   templateUrl: "./app.component.html"
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor(private clothesStore: ClothesStore) {}
-
-  public ngOnInit(): void {
-    setTimeout(() => this.clothesStore.dispatch({ type: "dummy-event" }), 500);
-  }
 }

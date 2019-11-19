@@ -9,18 +9,17 @@ import { ClothesStore } from "../../store/ClothesStore";
 export class StorefrontComponent implements OnInit {
   private items: Map<string, any>;
 
-  constructor(private storeService: ClothesStore) {}
+  constructor(private clothesService: ClothesStore) {}
 
   public ngOnInit() {
     // tslint:disable-next-line:no-console
-    this.storeService.subscribe(this.setState.bind(this));
+    this.clothesService.subscribe(this.setState.bind(this));
+    this.clothesService.fetchClothes();
   }
 
   private setState(state) {
     // tslint:disable-next-line:no-console
-    console.log("yesssss"); // eslint-disable-line
-    // tslint:disable-next-line:no-console
-    console.log(state); // eslint-disable-line
+    console.log(state.toJS()) //eslint-disable-line
     this.items = state.items;
   }
 }

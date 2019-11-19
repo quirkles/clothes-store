@@ -21,7 +21,7 @@ export class Store implements IStore {
     this.reducer = reducer;
   }
 
-  public dispatch(event) {
+  public dispatch(event: IEvent) {
     this.subject.next(this.reducer.dispatch(event));
   }
   public subscribe(setState) {
